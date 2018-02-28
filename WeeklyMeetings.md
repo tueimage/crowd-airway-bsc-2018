@@ -1,6 +1,8 @@
 # Weekly meetings
 
-Copy/paste and fill in the template below each week, BEFORE coming to the weekly meeting with your supervisor. 
+Copy/paste and fill in the template below each week (most recent date on top), commit and push your changes BEFORE coming to the weekly meeting with your supervisor. 
+
+
 
 
 ## Template
