@@ -30,7 +30,7 @@ Copy/paste and fill in the template below each week (most recent date on top, te
 
 #### Where do you need help?
 
-* Replace this text with a bullet point list of what you need help from Kirstie on.
+* Replace this text with a bullet point list of what you need help from your supervisor on.
 * It's ok if your list is only one bullet point long!
 * Try to estimate how long each task will take.
 
