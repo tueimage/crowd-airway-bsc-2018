@@ -4,6 +4,7 @@ user='Veronika';
 
 if strcmp(user,'Veronika')
     dataPath = 'C:\Users\VCheplyg\Dropbox\10. Work\CrowdAirway\shared\data\';
+    slicePath = 'C:\Users\VCheplyg\Dropbox\10. Work\CrowdAirway\shared\slices\';
     resultPath = 'C:\Users\VCheplyg\Dropbox\10. Work\CrowdAirway\shared\results\';
 end
 
@@ -37,7 +38,7 @@ whichAnnotator = '';  %A string to store IDs of the crowd annotators
 
 
 %How many images to display
-showImages = 0;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
+showImages = 1;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
 
 
 
@@ -79,7 +80,7 @@ for i=1:numTasksToShow
     if numRes>0
         %Get original image of this airway
         if showImages == 1
-            im = imread([dataPath '\slices_GoLive2\' origFileName]);
+            im = imread([slicePath 'slices_GoLive2\' origFileName]);
         end
         
         %Load the ground truth measurements for this airway
