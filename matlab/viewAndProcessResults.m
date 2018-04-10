@@ -1,12 +1,7 @@
 %% Define data paths 
 
-user='Veronika';
+[dataPath slicePath resultPath] = getPath;
 
-if strcmp(user,'Veronika')
-    dataPath = 'C:\Users\VCheplyg\Dropbox\10. Work\CrowdAirway\shared\data\';
-    slicePath = 'C:\Users\VCheplyg\Dropbox\10. Work\CrowdAirway\shared\slices\';
-    resultPath = 'C:\Users\VCheplyg\Dropbox\10. Work\CrowdAirway\shared\results\';
-end
 
 %% Load ground truth measurements 
 load(fullfile(dataPath, 'LUVAR_GoLive2.mat'),'data'); 
