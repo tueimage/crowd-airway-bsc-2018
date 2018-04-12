@@ -9,8 +9,7 @@ Copy/paste and fill in the template below each week (most recent date on top, te
 
 ## Template
 
-### Date: [INSERT DATE OF MEETING]
-
+### Date: 12/04/2018
 
 #### What did you achieve this week?
 
