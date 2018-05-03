@@ -113,7 +113,7 @@ for i=1:numTasksToShow
             end
             
             % Decide if these annotations are "usable". This is now defined
-            % as two ellipses within each other (for inner and outer way),
+            % as two ellipses within each other (for inner and outer airway),
             % but this could be changed
             useAnnotation = classifyAnnnotation(centerX, centerY, angle, radius1, radius2);
             
