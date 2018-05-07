@@ -28,7 +28,8 @@ scaleFactor = voxelSize*imageScaling;
 %Arrays to collect data
 gtTable = [];    %Ground truth measurements (Wiyeing and Adria's algorithm)
 dataTable = [];  %Details of task 
-annotTable = []; %Measurements of annotation 
+annotTable = []; %Measurements of annotation
+gtTablePerTask = []; %Ground truth measurements per task (Wiyeing and Adria's algoritm) 
 whichAnnotator = '';  %A string to store IDs of the crowd annotators
 
 
@@ -45,7 +46,7 @@ numTasks = length(data.project.tasks);
 
 %How many tasks to go through
 if showImages == 1
-    numTasksToShow = 100;
+    numTasksToShow = 5;
 else
     numTasksToShow = numTasks;
 end
@@ -88,7 +89,10 @@ for i=1:numTasksToShow
         areaOuterAdria = gt(subjectID).airways(airwayID).outer.area(whichPoint);
                                    
         vec = gt(subjectID).airways(airwayID).viewpoints.vec;
-
+        
+        %Add airway ground truth of each task to the corresponding array
+        gtTablePerTask = [gtTablePerTask; areaInnerWieying, areaOuterWieying, areaInnerAdria, areaOuterAdria];
+        
         %Go through crowdsourcing results
         for j=1:numRes
           
@@ -113,7 +117,7 @@ for i=1:numTasksToShow
             end
             
             % Decide if these annotations are "usable". This is now defined
-            % as two ellipses within each other (for inner and outer way),
+            % as two ellipses within each other (for inner and outer airway),
             % but this could be changed
             useAnnotation = classifyAnnnotation(centerX, centerY, angle, radius1, radius2);
             
@@ -169,18 +173,14 @@ for i=1:numTasksToShow
 end
 
 %Save the results
-save([resultPath 'annotationSummary_allSubjects.mat'], 'gtTable', 'dataTable', 'annotTable');
-
-
+save([resultPath 'annotationSummary_allSubjects.mat'], 'gtTable', 'dataTable', 'annotTable', 'gtTablePerTask');
 
 %%
-load([resultPath 'annotationSummary_allSubjects.mat'], 'gtTable', 'dataTable', 'annotTable');
+load([resultPath 'annotationSummary_allSubjects.mat'], 'gtTable', 'dataTable', 'annotTable', 'gtTablePerTask');
 
 %Columns:
 %dataTable = [dataTable; i numAnnot useAnnotation];
-%gtTable = [gtTable; areaInnerWieying, areaOuterWieying, areaInnerAdria, areaOuterAdria];
+%gtTable = [gtTable; areaInnerWieying, areaOuterWieying, areaInnerAdria, areaOuterAdria]; %per result
 %annotTable = [annotTable; min(area1,area2), max(area1,area2)]; %or nan if only one or zero ellipses are drawn
-
-
-
+%gtTablePerTask = [gtTablePerTask; areaInnerWieying, areaOuterWieying,areaInnerAdria, areaOuterAdria]; %per task 
 
