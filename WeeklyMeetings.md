@@ -1,6 +1,36 @@
 # Weekly meetings
 
 Copy/paste and fill in the template below each week (most recent date on top, template at the bottom), commit and push your changes BEFORE coming to the weekly meeting with your supervisor.    
+### Date: 14/05/2018
+
+#### What did you achieve this week?
+* Deelvragen bedacht waardoor ik in principe ze nu stap voor stap kan afwerken. 
+* Scatterplot gemaakt waarin iedere gewenste task een andere kleur heeft en waarin zowel inner als outer area van elke overgebleven annotatie na filteren te zien is waarbij expert en KW's tegen elkaar uitstaat. 
+* Scatterplot outer vs. inner area van de KW annotaties, met elke task een andere kleur. Hierin valt op dat wanneer er een grotere area geannoteerd wordt dat hierbij grotere verschillen te zien zijn tussen de KW's. 
+Daarnaast zie je dat er ook een groot aantal annotaties zijn met exact dezelfde oppervlakte, dit zal betekenen dat de 'basis' ellips niet veranderd is door de KW en dat wellicht de annotatie minder realistisch is.
+* Teksten gelezen over statestiek, maar hier niet veel wijzer uit geworden.
+
+#### What did you struggle with?
+* Wanneer ik een plotje heb gemaakt, ben ik blij dat dat gelukt is. Maar uiteindelijk heeft zulk werk alleen waarde als het iets toevoegd of wanneer je er iets zinnigs over kunt zeggen.
+Dus hierbij zal iets van statestiek nodig zijn of een andere maat om te kwantificeren. Met die stap die dus volgt heb ik moeite en weet ik niet hoe ik dat kan aanpakken.
+* Heb het gevoel dat ik meer met losse flodders bezig ben, dus te werk ga zonder iets concreets (af) te maken.  
+* Ik wilde iets met geslacht onderzoeken, maar kon deze parameter niet vinden en later bedacht ik mij ook dat dit helemaal niet handig of interessant is.
+
+#### What would you like to work on next week?
+
+* Volgende week zou ik graag data willen analyseren waarbij er ook echt getalwaarden uitkomen.
+* Gelijktijdig netjes documenteren waarmee ik bezig ben. 
+  
+
+#### Where do you need help?
+
+* Mening en ideeën over nieuwe onderzoeksvraag/ deelvragen
+* Tips voor statistische onderbouwing / wat voor een methoden zijn er om data te analyseren. 
+
+
+#### Any other topics
+
+* Combineren van annotaties denk ik dat ik voorlopig gewoon via median laat. 
 
 
 
