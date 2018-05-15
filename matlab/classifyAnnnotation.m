@@ -15,9 +15,9 @@ end
 
 %% In this part, find out which of the ellipses belong to the same airway
 
-%Threshold on the maximum pixel distance of the centers of two ellipses
-%of the same airway 
-distanceThreshold = 10;
+%Threshold on the maximum pixel distance of the centers of two ellipses of
+%the same airway
+distanceThreshold=10; 
 
 %Calculate distances between all ellipse centers, set distance to self to
 %infinity

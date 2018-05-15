@@ -23,7 +23,8 @@ for k=1:length(annotations)
     centerX(k) = ptsX(1);
     centerY(k) = ptsY(1);
     
-    %Calculate angle of ellipse relative to vector [1, 0]. This is needed to draw the ellipse 
+    %Calculate angle of ellipse relative to vector [1, 0]. This is needed
+    %to draw the ellipse
     v1 = [ptsX(1)-ptsX(2), ptsY(1)-ptsY(2)];
     v2 = [1, 0];
     dot = v1(1)*v2(1) + v1(2)*v2(2) ;
