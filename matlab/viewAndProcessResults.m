@@ -34,7 +34,7 @@ whichAnnotator = '';  %A string to store IDs of the crowd annotators
 
 
 %How many images to display
-showImages = 1;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
+showImages = 0;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
 
 
 
@@ -134,7 +134,7 @@ for i=1:numTasksToShow
             gtTable = [gtTable; areaInnerWieying, areaOuterWieying, areaInnerAdria, areaOuterAdria];
             
             %Add crowdsourcing details to the corresponding array
-            dataTable = [dataTable; i numAnnot useAnnotation];
+            dataTable = [dataTable; i numAnnot useAnnotation subjectID];
             
                        
             %Measure the ellipses - this currently assumes that voxels are square, which is not the case. 

@@ -4,7 +4,7 @@
 load([resultPath 'annotationSummary_allSubjectsFilter.mat'], 'filterGtTable', 'filterDataTable', 'filterAnnotTable');
 numTasks=2380;
 
-AllResults=0; %If set to one, all results will be shown in the scatterplot
+AllResults=1; %If set to one, all results will be shown in the scatterplot
 Tasks=[1555,2128,378, 387,433,568,640, 275, 1665]; %Choose specific numbers of tasks to analyse
 
 if AllResults==1; 
