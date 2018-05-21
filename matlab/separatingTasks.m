@@ -35,44 +35,5 @@ for task=1:numTasks;
         indexResultsTask(task,3)= {OuterAreasTask};
     end
 end
- %%
- AllBox=0; % if AllBox set to 1, all tasks will be shown in boxplot.
- spec=[1,2]; %specific tasks to show 
- Type=2 % 2 for inner area, 3 for outer area
- % miss later nog een stop inbouwen voor als geen 2 of 3 aangegeven is die
- % dan returned van vul dit in. 
- if AllBox == 1
-    spec = numTasks;
- end
  
- % wilt een figuur met twee boxplots, waarvan een van de inner area van
- % task 1 is en de ander van task 2. 
- % handmatig kun je dat doen door boxplot([info1 , info2]) 
- % ongelijke lengte van de info geeft ook een probleem. Dus wanneer van
- % task 1 9x de area geannoteerd is, maar van task 2 11x. 
- % Maar ik wil eigenlijk dat dit aantal tussen [] niet vast staat, maar dat
- % je dus ook 100 kunt weergeven of 6 afhankelijk van hoeveel tasks je
- % specificeert. 
-
- 
- %  boxes=[];
-%  for i=1:length(spec)
-%      boxes=[boxes, cell2mat(indexResultsTask(spec(i),Type))];
-%  end
-%  figure; boxplot(boxes)
- figure; boxplot([cell2mat(indexResultsTask(spec(1),Type)), cell2mat(indexResultsTask(spec(2),Type))])
- %figure; boxplot(cell2mat(indexResultsTask(spec,Type)))
- %figure; errorbar(mean(cell2mat(indexResultsTask(spec,Type))), std((cell2mat(indexResultsTask(spec,Type)))))
- 
-
- 
- 
- 
- 
- 
- %boxplot([InnerAreasTask,OuterAreasTask, InnerAreasTask1,OuterAreasTask1]);
-%figure; errorbar(mean(InnerAreasTask), std(InnerAreasTask), 'o') 
-
-%  mean(InnerAreasTask)
-%  std(InnerAreasTask)
- %boxplot([InnerAreasTask,OuterAreasTask])
+save([resultPath 'indexResultsTask.mat'], 'indexResultsTask');

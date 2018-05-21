@@ -1,6 +1,32 @@
 # Weekly meetings
 
 Copy/paste and fill in the template below each week (most recent date on top, template at the bottom), commit and push your changes BEFORE coming to the weekly meeting with your supervisor.    
+### Date: 21/05/2018
+
+#### What did you achieve this week?
+*Created 'separatingTasks.m' that creates the cell indexResultsTask in which the annotations of each task are organized. 
+*Created 'boxplotGeneral.m' that can be used as draft for the boxplots that will be made. 
+*Created 'selectTasksBasedOnCFStatus.m' which intends to select the tasks based on the CF status. The output can be used as input for boxplotGeneral.m. However, this script is not complete/correct. 
+
+#### What did you struggle with?
+*First I struggled with grouping the boxplots, but this is solved. 
+*I need to select all the tasks of the patients with or without CF, but the script only selects 12 tasks in total. So, for each patient one task, but there should be more tasks/patient. 
+
+
+#### What would you like to work on next week?
+*I would like to provide more insight into the actual CF/ no-CF relation. 
+*To work out the plan with p-values et cetera. 
+*Have a look at overleaf
+
+#### Where do you need help?
+*No help needed at the moment, I first need to elaborate my plan. 
+
+
+#### Any other topics
+*
+
+
+
 ### Date: 14/05/2018
 
 #### What did you achieve this week?
