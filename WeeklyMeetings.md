@@ -1,6 +1,25 @@
 # Weekly meetings
 
 Copy/paste and fill in the template below each week (most recent date on top, template at the bottom), commit and push your changes BEFORE coming to the weekly meeting with your supervisor.    
+### Date: 24/05/2018
+
+#### What did you achieve this week?
+* Implemented wall area percentage to capture outer area and inner area in one parameter. The mean-WAP of the annotations and the tasks of one subject were determined.
+* A figure with boxplots of the mean-WAP of the KW's over all healthy subjects, the mean-WAP of the KW's over all CF subjects and the same for the expert (Wieying).
+* Computed the Mann-Whitney U test (which was done in an article), but the healthy and cf subjects didn't differ significantly (p>0.05) for both expert and kw.
+*  
+#### What did you struggle with?
+*
+#### What would you like to work on next week?
+
+
+#### Where do you need help?
+*
+
+
+#### Any other topic
+*
+
 ### Date: 21/05/2018
 
 #### What did you achieve this week?

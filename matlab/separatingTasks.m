@@ -12,6 +12,8 @@ numTasks=2380;
 %of that task
 %Unit in the third colum contains a column with the annotated outer areas of
 %the task
+%Unit in the fourth colom contains a column with the Wall Area Percentages
+%of the task
 indexResultsTask=cell(numTasks,1);
 for i=1:numTasks
     indexes=[];
@@ -26,13 +28,16 @@ end
 for task=1:numTasks;
     InnerAreasTask=[];
     OuterAreasTask=[];
+    WAPTask=[];
     indexesAnnotations=cell2mat(indexResultsTask(task,1));
     for j=1:length(indexesAnnotations)
         indexAnnotation=indexesAnnotations(j);
         InnerAreasTask=[InnerAreasTask; filterAnnotTable(indexAnnotation,1)];
         OuterAreasTask=[OuterAreasTask; filterAnnotTable(indexAnnotation,2)];
+        WAPTask=[WAPTask; filterAnnotTable(indexAnnotation,3)];
         indexResultsTask(task,2)= {InnerAreasTask};
         indexResultsTask(task,3)= {OuterAreasTask};
+        indexResultsTask(task,4)= {WAPTask};
     end
 end
  
