@@ -25,7 +25,7 @@ for i=1:length(subjectIDandStatusandTask)
 end
 for j=1:length(indexSubject)
     index=indexSubject(j)
-    tasksOfSubject= cell2mat(subjectIDandStatusandTask(index,3))
+    tasksOfSubject= cell2mat(subjectIDandStatusandTask(index,3));
     WAPPerTaskKW=[];
     WAPPerTaskExpert=[];      
     for i=1:length(tasksOfSubject)

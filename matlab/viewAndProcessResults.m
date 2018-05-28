@@ -65,6 +65,9 @@ for i=1:numTasksToShow
         
     ids = sscanf(origFileName, 'data(%d).airways(%d).viewpoints(%d)', [1, inf]);
     subjectID = ids(1);     %Which subject the airway is from
+    if subjectID==21;
+        keyboard
+    end
     airwayID = ids(2);      %Which airway of that subject is it
     viewpoint = ids(3);     %Which viewpoint of the airway (in this data, this is always 1)
             
@@ -172,7 +175,7 @@ for i=1:numTasksToShow
     end
 end
 
-%Save the results
+%% Save the results
 save([resultPath 'annotationSummary_allSubjects.mat'], 'gtTable', 'dataTable', 'annotTable', 'gtTablePerTask');
 
 %%
