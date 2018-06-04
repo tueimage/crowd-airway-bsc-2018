@@ -5,6 +5,8 @@ load([resultPath 'subjectIDandStatusandTask.mat'], 'subjectIDandStatusandTask');
 load([resultPath 'filterUsefulResults.mat'], 'filterGtTable', 'filterDataTable', 'filterAnnotTable');
 load([resultPath 'subjectsCF.mat'], 'subjectsYesCF', 'subjectsNoCF');
 %% Adding wall area percentage (WAP) of the experts to groundtruth table per task
+%The WAP of the annotations of the crowd has already been added in
+%filterUsefulResults.m
 load([resultPath 'annotationSummary_allSubjects.mat'], 'gtTablePerTask');
 
 for i=1:length(gtTablePerTask)
@@ -66,15 +68,21 @@ for j=1:length(indexSubject)
     wapExpertYes=[wapExpertYes; subjectWAPExpert];
 end
 %% Boxplot
+meanEY=mean(wapExpertYes);
+meanEN=mean(wapExpertNo);
+meanKY=mean(wapKWYes);
+meanKN=mean(wapKWNo);
+
 figure; boxplot([wapKWNo, wapExpertNo, wapKWYes, wapExpertYes], {'Healthy KW', 'Healthy Expert', 'CF KW', 'CF Expert'})
 ylabel('Wall Area Percentage [%]')
 
-%% Wilcoxon rank sum test / Mann-Whitney U-test
+%% Two tests performed to test for significant differences between the healthy subjects and the CF subjects. 
+% Wilcoxon rank sum test / Mann-Whitney U-test
 [p,h]=ranksum(wapExpertNo, wapExpertYes)
 [p,h]=ranksum(wapKWNo, wapKWYes)
 
-%% Anova
-expert=[wapExpertNo wapExpertYes]
-kw=[wapKWNo wapKWYes]
+% Anova
+expert=[wapExpertNo wapExpertYes]; 
+kw=[wapKWNo wapKWYes];
 p=anova1(expert)
 p=anova1(kw)

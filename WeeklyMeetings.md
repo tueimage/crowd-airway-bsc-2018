@@ -4,6 +4,28 @@ Copy/paste and fill in the template below each week (most recent date on top, te
 ### Date: 28/05/2018
 
 #### What did you achieve this week?
+* Rewrote some scripts
+* Clarified goal of function incl. read me
+* Wrote on the report
+* Retrieved some additional numbers
+
+#### What did you struggle with?
+* The structure of the paper.  
+
+#### What would you like to work on next week?
+* I want to know whether some subjects had almost no usable annotations
+* The effect of the amount of usable annotations representing the crowd on the correlation coefficient.  
+
+#### Where do you need help?
+* One reference won't work with bibtex
+
+
+#### Any other topic
+* 
+
+### Date: 28/05/2018
+
+#### What did you achieve this week?
 * Implemented wall area percentage to capture outer area and inner area in one parameter. The mean-WAP of the annotations and the tasks of one subject were determined.
 * A figure with boxplots of the mean-WAP of the KW's over all healthy subjects, the mean-WAP of the KW's over all CF subjects and the same for the expert (Wieying).
 * Computed the Mann-Whitney U test (which was done in an article), but the healthy and cf subjects didn't differ significantly (p>0.05) for both expert and kw.

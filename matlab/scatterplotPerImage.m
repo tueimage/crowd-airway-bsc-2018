@@ -1,69 +1,67 @@
+%% This scripts generates scatterplots
+% A scatterplot in which each point represents the of the outer area expert 
+% vs. combination of kw's outer areas 
+% scatterplot in which each point represents the the inner area expert vs.
+% combination of the kw's inner areas
+
 %% Define data paths and load data
 
 [dataPath slicePath resultPath] = getPath;
-load([resultPath 'annotationSummary_allSubjects.mat'], 'gtTable', 'dataTable', 'annotTable', 'gtTablePerTask');
-%Columns:
-%dataTable = [dataTable; i numAnnot useAnnotation];
-%gtTable = [gtTable; areaInnerWieying, areaOuterWieying, areaInnerAdria, areaOuterAdria]; %per result
-%annotTable = [annotTable; min(area1,area2), max(area1,area2)]; %or nan if only one or zero ellipses are drawn
+load([resultPath 'annotationSummary_allSubjects.mat'],'gtTablePerTask');
 %gtTablePerTask = [gtTablePerTask; areaInnerWieying, areaOuterWieying,areaInnerAdria, areaOuterAdria]; %per task 
 
+load([resultPath 'indexResultsTask.mat'], 'indexResultsTask');
+%indexResultsTask is a cell each row contains data from one image. The
+%first column contains the task numbers, the second the inner areas, the
+%third the outer areas and the fourth colum contains the wall area
+%percentages. 
+%% Expert's data
 
-%% Filter data to keep all succesfull performed annotation results
-% Just the data that of an annotation result that contains two annotations
-% which are defined as correct by the 'classifyAnnotation.m' are being kept. 
+areaInnerExpert=gtTablePerTask(:,1);
+areaOuterExpert=gtTablePerTask(:,2);
+%% Knowledge workers' data
+% the median of the annotated areas is used
+numImage=length(indexResultsTask);
+areaInnerKWCombined=[];
+areaOuterKWCombined=[];
 
-filterDataTable=[];
-filterAnnotTable=[]; 
-filterGtTable=[];
+for i=1:numImage
+areaInnerKWCombined=[areaInnerKWCombined; median(cell2mat(indexResultsTask(i,2)))];
+areaOuterKWCombined=[areaOuterKWCombined; median(cell2mat(indexResultsTask(i,3)))];
+end
 
-for i=1:length(dataTable)
-    if dataTable(i,2)==2 && dataTable(i,3)==1
-        filterDataTable=[filterDataTable; dataTable(i,:)];
-        filterAnnotTable=[filterAnnotTable; annotTable(i,:)];
-        filterGtTable=[filterGtTable; gtTable(i,:)];
+%% Remove unusable annotated images
+% images that were discarded due to the filter criteria are defined as NaN
+% Remove those images in order to be able to calculate the correlation
+AIE=[];
+AIK=[];
+AOE=[];
+AOK=[];
+for i=1:numImage
+    if isnan(areaInnerKWCombined(i,1))==0 % if it doesnt contain NaN, than keep it as a point
+        AIE=[AIE; areaInnerExpert(i,1)];
+        AIK=[AIK; areaInnerKWCombined(i,1)];
+    end
+    if isnan(areaOuterKWCombined(i,1))==0
+        AOE=[AOE; areaOuterExpert(i,1)];
+        AOK=[AOK; areaOuterKWCombined(i,1)];
     end
 end
 
-%% Median experts' data
-areaInnerExpertCombined=median([gtTablePerTask(:,1), gtTablePerTask(:,3)],2);
-areaOuterExpertCombined=median([gtTablePerTask(:,2), gtTablePerTask(:,4)],2);
-
-%% Median knowledge workers' data
-numTask=length(gtTablePerTask);
-areaInnerKWCombined=[]; % Contains median annotation inner area of each task. 
-areaOuterKWCombined=[]; % Contains median annotation outer area of each task. 
-
-for i=1:numTask
-    combineAreaInner=[];
-    combineAreaOuter=[];
-    for j=1:length(filterDataTable)
-        if filterDataTable(j,1)==i
-            combineAreaInner=[combineAreaInner; filterAnnotTable(j,1)];
-            combineAreaOuter=[combineAreaOuter; filterAnnotTable(j,2)];
-        end
-    end
-    CAI= median(combineAreaInner);
-    CAO= median(combineAreaOuter);
-    areaInnerKWCombined=[areaInnerKWCombined; CAI];
-    areaOuterKWCombined=[areaOuterKWCombined; CAO];
-    
-end
-
-% De NaN die nu nog in areaInner/OuterKWCombined voorkomen zijn de tasks
-% die geen enkele bruikbare annotaties hebben opgeleverd. 
-    
-            
+%% Correlation
+[rhoI,pval]=corr(AIE,AIK) %Inner areas / airway lumen
+[rhoO,pval]=corr(AOE, AOK) %Outer areas / airway wall
 
 %% Scatterplot of areas combined per image
-figure; scatter(areaInnerExpertCombined, areaInnerKWCombined, 'b')
+figure; scatter(AIE, AIK, 'b')
 xlabel('Expert area in mm^2'); 
 ylabel('Worker area in mm^2'); 
-title('Inner airway, median combined');
+title(['Airway lumen, median combined, r=', num2str(rhoI)]);
 refline(1,0)
 
-figure; scatter(areaOuterExpertCombined, areaOuterKWCombined, 'b')
+figure; scatter(AOE, AOK, 'b')
 xlabel('Expert area in mm^2'); 
 ylabel('Worker area in mm^2'); 
-title('Outer airway, median combined');
+title(['Airway wall, median combined, r=', num2str(rhoO)]);
 refline(1,0)
+

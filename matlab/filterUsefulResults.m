@@ -21,7 +21,7 @@ end
 
 
 %% Filter data to keep all succesfull performed annotation results
-% Just the data that of an annotation result that contains two annotations
+% Only the data of an annotation result that contains two annotations
 % which are defined as correct by the 'classifyAnnotation.m' are being kept. 
 
 filterDataTable=[];
