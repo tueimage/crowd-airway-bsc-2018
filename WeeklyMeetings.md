@@ -9,7 +9,7 @@ A total of 53*20=1060 annotations were performed by the crowds on the slices tha
 * Related work section
 * Revised the introduction
 
-*#### What did you struggle with?
+#### What did you struggle with?
 * I've invested a lot of time in the introduction, but it still seems to be incoherent in some way.  
 * Sorting the boxes in the boxplot at which i didn't succeed.
 
