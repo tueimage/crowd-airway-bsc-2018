@@ -1,6 +1,30 @@
 # Weekly meetings
 
 Copy/paste and fill in the template below each week (most recent date on top, template at the bottom), commit and push your changes BEFORE coming to the weekly meeting with your supervisor.    
+### Date: 11/06/2018
+
+#### What did you achieve this week?
+* I generated tables of which subjects had what amount of data on which point, e.g. 66 image slices were initially taken from subject ID 21. After filtering 53 image slices had one or more usable annotations. So, 19.7% of the images were discarded based on the filter criteria. 
+A total of 53*20=1060 annotations were performed by the crowds on the slices that had usable annotations. But 497 annotations on those image slices were usable. 62.3% of all annotations of this subject's slices were discarded. Irrespective of the amount of image slices, the % of discarded annotations of all subjects was between 54.6 and 76.1. 
+* Related work section
+* Revised the introduction
+
+*#### What did you struggle with?
+* I've invested a lot of time in the introduction, but it still seems to be incoherent in some way.  
+* Sorting the boxes in the boxplot at which i didn't succeed.
+
+#### What would you like to work on next week?
+* First of all, I'd  like to make sure that there is a paper to hand in. 
+* MAPE showed that outer area error is generally smaller than the inner area error. So based on this: investigate whether this depends on the size of the area or on the type of area. 
+* MAPE smallest and largest airway per subject.   
+
+#### Where do you need help?
+* Is the related work section, kind of what is expected in a research paper?
+* Sorting the boxplots would be great, since all data is divided in a CF and a healthy group.
+
+#### Any other topic
+* 
+
 ### Date: 04/06/2018
 
 #### What did you achieve this week?
