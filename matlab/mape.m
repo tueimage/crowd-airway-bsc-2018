@@ -5,8 +5,9 @@ load([resultPath 'filterUsefulResults.mat'], 'filterGtTable', 'filterDataTable',
 load([resultPath 'subjectsCF.mat'], 'subjectsYesCF', 'subjectsNoCF');
 
 %% Mean absolute percentage error of each subject
+%The MAPE value of each subject will be found in subjectIDandMAPE
 
-%define the type of list with subject numbers 
+%define the type (subjectsNoCF or subjectsYesCF) of list with subject numbers 
 Type=subjectsNoCF;
 
 %list that will contain the subject number with corresponding MAPE
@@ -27,9 +28,13 @@ for i=1:length(Type)
     subjectIDandMAPE(i,2)=MAPE;
 end
 
+
 %% MAPE visualized by box per subject, which shows the deviation of the MAPE of each task
 %list that will contain the subject number with corresponding MAPE
 MAPEperTaskEachSubject=[];
+
+Gtel=[];
+    Ktel=[];
 for n=1:length(subjectIDandStatusandTask)
     subjectID=cell2mat(subjectIDandStatusandTask(n,1))
     
@@ -39,8 +44,8 @@ for n=1:length(subjectIDandStatusandTask)
     
     for i=1:length(tasksSubject)
         indexTable=find(ismember(filterDataTable(:,1),tasksSubject(i)));
-        pred=filterAnnotTable(indexTable,2); %inner area predicted by the KW
-        act=filterGtTable(indexTable,2); %inner area Wieying
+        pred=filterAnnotTable(indexTable,2); %1=inner, 2=outer area predicted by the KW
+        act=filterGtTable(indexTable,2); % 1=inner, 2=outer area Wieying
         
         %Mean absolute percentage error
         MAPE=mean((abs(act-pred))./(abs(act)))*100;
@@ -49,8 +54,27 @@ for n=1:length(subjectIDandStatusandTask)
         subjectTasksandMAPE(i,2)=MAPE;
         subjectTasksandMAPE(i,3)=tasksSubject(i);
     end
+    mean(subjectTasksandMAPE(:,2))
+    median(subjectTasksandMAPE(:,2))
+    std(subjectTasksandMAPE(:,2))
+    
     MAPEperTaskEachSubject=[MAPEperTaskEachSubject;subjectTasksandMAPE];
+    
+    % test
+    telG=0;
+    telK=0;
+   
+    for i=1:length(subjectTasksandMAPE)
+        if subjectTasksandMAPE(i,2)>100
+            telG=telG+1;
+        else 
+            telK=telK+1;
+        end
+    end
+    Gtel=[Gtel;telG];
+    Ktel=[Ktel;telK];
 end
 
- figure; boxplot(MAPEperTaskEachSubject(:,2), MAPEperTaskEachSubject(:,1))
+ figure; boxplot(MAPEperTaskEachSubject(:,2), MAPEperTaskEachSubject(:,1), 'GroupOrder', TEST)
+
  
