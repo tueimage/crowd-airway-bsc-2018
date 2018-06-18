@@ -4,6 +4,9 @@ load([resultPath 'subjectIDandStatusandTask.mat'], 'subjectIDandStatusandTask');
 load([resultPath 'filterUsefulResults.mat'], 'filterGtTable', 'filterDataTable', 'filterAnnotTable');
 load([resultPath 'subjectsCF.mat'], 'subjectsYesCF', 'subjectsNoCF');
 
+%% CHOOSE the annotation area of which you want to retrieve the MAPE
+type=1; % %1=inner, 2=outer area 
+
 %% Mean absolute percentage error of each subject
 %The MAPE value of each subject will be found in subjectIDandMAPE
 
@@ -18,8 +21,8 @@ for i=1:length(Type)
     tasksSubject=cell2mat(subjectIDandStatusandTask(indexSubject,3));
     indexTable=find(ismember(filterDataTable(:,1),tasksSubject));
     
-    pred=filterAnnotTable(indexTable,1); %inner area predicted by the KW
-    act=filterGtTable(indexTable,1); %inner area Wieying
+    pred=filterAnnotTable(indexTable,type); % type of area predicted by the KW
+    act=filterGtTable(indexTable,type); % type of area Wieying
     
     %Mean absolute percentage error
     MAPE=mean((abs(act-pred))./(abs(act)))*100;
@@ -44,8 +47,8 @@ for n=1:length(subjectIDandStatusandTask)
     
     for i=1:length(tasksSubject)
         indexTable=find(ismember(filterDataTable(:,1),tasksSubject(i)));
-        pred=filterAnnotTable(indexTable,2); %1=inner, 2=outer area predicted by the KW
-        act=filterGtTable(indexTable,2); % 1=inner, 2=outer area Wieying
+        pred=filterAnnotTable(indexTable,type); %type of area predicted by the KW
+        act=filterGtTable(indexTable,type); % type of area Wieying
         
         %Mean absolute percentage error
         MAPE=mean((abs(act-pred))./(abs(act)))*100;
@@ -58,11 +61,12 @@ for n=1:length(subjectIDandStatusandTask)
     median(subjectTasksandMAPE(:,2))
     std(subjectTasksandMAPE(:,2))
     
+    
     MAPEperTaskEachSubject=[MAPEperTaskEachSubject;subjectTasksandMAPE];
     
-    % test
-    telG=0;
-    telK=0;
+    % count the amount of MAPEs above and below the 100%
+    telG=0; % MAPE larger than 100%
+    telK=0; % MAPE smaller than or equal to 100%
    
     for i=1:length(subjectTasksandMAPE)
         if subjectTasksandMAPE(i,2)>100
@@ -71,10 +75,28 @@ for n=1:length(subjectIDandStatusandTask)
             telK=telK+1;
         end
     end
-    Gtel=[Gtel;telG];
-    Ktel=[Ktel;telK];
+    Gtel=[Gtel;telG]; %list with for each subject the amount of tasks above the value
+    Ktel=[Ktel;telK]; %list with for each subject the amount of tasks below or equal to the value
 end
 
- figure; boxplot(MAPEperTaskEachSubject(:,2), MAPEperTaskEachSubject(:,1), 'GroupOrder', TEST)
+%% Boxplot ordered by healthy subjects and CF subjects
+ixnocf = ismember(MAPEperTaskEachSubject(:,1),subjectsNoCF)
+statusPerTask=nan(size(MAPEperTaskEachSubject))
+statusPerTask(ixnocf) = 2 %if the tasks belongs to a subject without CF the status per task will be 2
+statusPerTask(~ixnocf) = 1 %all other tasks (healthy subject) are 1. 
+dummyId = MAPEperTaskEachSubject(:,1)
+dummyId(statusPerTask==1)=dummyId(statusPerTask==1)+100 %when adding 100 to the ID value, this ID will be bigger than those of the healthy subject ID and thus sorted at the end
+figure; boxplot(MAPEperTaskEachSubject(:,2), dummyId, 'labels', {'1','3','6','8','12','16','17','21','23','24','25','27','2','4','5','7','10','11','13','18','19','26','28','41'})
+xlabel('subject ID')
+ylabel('mean MAPE [%]')
+if type==1
+    title('MAPE of inner area per image slice')
+else
+    title('MAPE of outer area per image slice')
+end
+%ylim([0 650]) %specify the limit of the y-axis for a better view of the
+%boxes.
+%% Boxplot on numerical order
+%figure; boxplot(MAPEperTaskEachSubject(:,2), MAPEperTaskEachSubject(:,1))
 
  

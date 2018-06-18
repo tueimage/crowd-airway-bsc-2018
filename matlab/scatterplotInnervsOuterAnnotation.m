@@ -68,16 +68,16 @@ Group=[zeros(length(NInnerArea),1); ones(length(YInnerArea),1)];
 %figure; gscatter(InnerArea, OuterArea,Group, 'br')
 figure; scatter(InnerArea,OuterArea)
 axis([0 100 0 100]);
-xlabel('Airway lumen area in mm^2'); 
-ylabel('Aiway wall area in mm^2'); 
-title('Annotations of the KWs');
+xlabel('Inner airway area in mm^2'); 
+ylabel('Outer airway area in mm^2'); 
+title('Annotations of the crowd');
 
-%adding a vertical and horizontal line to the scatterplot to indicate the
-%annotations which did not change the size of one of the ellipses
-hline=refline(0,23.7600);
-hline.Color='r'; 
-vline=line([23.7600 23.7600], [0 100]);
-vline.Color='r'; 
+% %adding a vertical and horizontal line to the scatterplot to indicate the
+% %annotations which did not change the size of one of the ellipses
+% hline=refline(0,23.7600);
+% hline.Color='r'; 
+% vline=line([23.7600 23.7600], [0 100]);
+% vline.Color='r'; 
 
 %% Generate scatter plot of expert
 InnerAreaE=filterGtTable(:,1);
@@ -85,6 +85,6 @@ OuterAreaE=filterGtTable(:,2);
 [rho,p]=corr(InnerAreaE, OuterAreaE)
 
 figure; scatter(InnerAreaE, OuterAreaE)
-xlabel('Airway lumen area in mm^2'); 
-ylabel('Aiway wall area in mm^2'); 
+xlabel('Inner airway area in mm^2'); 
+ylabel('Outer airway area in mm^2'); 
 title('Area measurements expert');

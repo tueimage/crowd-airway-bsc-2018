@@ -49,19 +49,19 @@ for i=1:numImage
 end
 
 %% Correlation
-[rhoI,pval]=corr(AIE,AIK) %Inner areas / airway lumen
-[rhoO,pval]=corr(AOE, AOK) %Outer areas / airway wall
+[rhoI,pval]=corr(AIE,AIK) %Inner areas 
+[rhoO,pval]=corr(AOE, AOK) %Outer areas
 
 %% Scatterplot of areas combined per image
 figure; scatter(AIE, AIK, 'b')
 xlabel('Expert area in mm^2'); 
 ylabel('Worker area in mm^2'); 
-title(['Airway lumen, median combined, r=', num2str(rhoI)]);
+title(['Inner airway area, median combined, r=', num2str(rhoI)]);
 refline(1,0)
 
 figure; scatter(AOE, AOK, 'b')
 xlabel('Expert area in mm^2'); 
 ylabel('Worker area in mm^2'); 
-title(['Airway wall, median combined, r=', num2str(rhoO)]);
+title(['Outer airway area, median combined, r=', num2str(rhoO)]);
 refline(1,0)
 

@@ -34,7 +34,7 @@ whichAnnotator = '';  %A string to store IDs of the crowd annotators
 
 
 %How many images to display
-showImages = 0;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
+showImages = 1;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
 
 
 
@@ -46,7 +46,7 @@ numTasks = length(data.project.tasks);
 
 %How many tasks to go through
 if showImages == 1
-    numTasksToShow = 5;
+    numTasksToShow = 10;
 else
     numTasksToShow = numTasks;
 end

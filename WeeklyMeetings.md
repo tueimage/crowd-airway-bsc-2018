@@ -1,6 +1,35 @@
 # Weekly meetings
 
 Copy/paste and fill in the template below each week (most recent date on top, template at the bottom), commit and push your changes BEFORE coming to the weekly meeting with your supervisor.    
+
+### Date: 11/06/2018
+
+#### What did you achieve this week?
+* Verslag afgeschreven met name resultaten en discussie
+* Feedback verwerkt, heel bruikbaar allemaal!
+
+#### What did you struggle with?
+* 
+
+#### What would you like to work on next week?
+* Github project page nalopen zodat alles wat op de planning stond/ niet vergeten moest worden ook echt gedaan is. 
+* Code nalopen
+
+#### Where do you need help?
+* Ik begreep de comment bij de onderzoeksvraag (inleiding) niet helemaal, dus hier in ieder geval even naar kijken.
+* Abstract doorlezen.
+
+
+#### Any other topic
+* Hoe zit het met het inleveren van scripts?  --(github error nog oplossen met weekly meetings)
+* Zijn de bronnen die in de tekst aangehaald nu juist? Bron direct 'na et al.'.
+* Gebruik van afkortingen zoals KW etc, moet je die in de discussie nog eens volledig uitschrijven?
+* Is het afwisselen van afkortingen met volledige uitdrukking storend en dus constant met een werken? 
+* Moeten de vergelijkingen genummerd worden, maar in principe refereer ik nergens terug.
+* Active voice nog meer gebruiken of alleen op punten waar het anders onnatuurlijk overkomt?   -our paper
+* Mag je zinnen beginnen met 'But'? 
+
+
 ### Date: 11/06/2018
 
 #### What did you achieve this week?

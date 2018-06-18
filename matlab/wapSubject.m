@@ -69,10 +69,13 @@ for j=1:length(indexSubject)
 end
 %% Boxplot
 meanEY=mean(wapExpertYes);
+stdEY=std(wapExpertYes);
 meanEN=mean(wapExpertNo);
+stdEN=std(wapExpertNo);
 meanKY=mean(wapKWYes);
+stdKY=std(wapKWYes);
 meanKN=mean(wapKWNo);
-
+stdKN=std(wapKWNo);
 figure; boxplot([wapKWNo, wapExpertNo, wapKWYes, wapExpertYes], {'Healthy KW', 'Healthy Expert', 'CF KW', 'CF Expert'})
 ylabel('Wall Area Percentage [%]')
 
