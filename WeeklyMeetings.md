@@ -4,6 +4,34 @@ Copy/paste and fill in the template below each week (most recent date on top, te
 ### Date: 11/06/2018
 
 #### What did you achieve this week?
+* Verslag afgeschreven met name resultaten en discussie
+* Feedback verwerkt, heel bruikbaar allemaal!
+
+#### What did you struggle with?
+* 
+
+#### What would you like to work on next week?
+* Github project page nalopen zodat alles wat op de planning stond/ niet vergeten moest worden ook echt gedaan is. 
+* Code nalopen
+
+#### Where do you need help?
+* Ik begreep de comment bij de onderzoeksvraag (inleiding) niet helemaal, dus hier in ieder geval even naar kijken.
+* Abstract doorlezen.
+
+
+#### Any other topic
+* Hoe zit het met het inleveren van scripts?  --(github error nog oplossen met weekly meetings)
+* Zijn de bronnen die in de tekst aangehaald nu juist? Bron direct 'na et al.'.
+* Gebruik van afkortingen zoals KW etc, moet je die in de discussie nog eens volledig uitschrijven?
+* Is het afwisselen van afkortingen met volledige uitdrukking storend en dus constant met een werken? 
+* Moeten de vergelijkingen genummerd worden, maar in principe refereer ik nergens terug.
+* Active voice nog meer gebruiken of alleen op punten waar het anders onnatuurlijk overkomt?   -our paper
+* Mag je zinnen beginnen met 'But'? 
+
+
+### Date: 11/06/2018
+
+#### What did you achieve this week?
 * I generated tables of which subjects had what amount of data on which point, e.g. 66 image slices were initially taken from subject ID 21. After filtering 53 image slices had one or more usable annotations. So, 19.7% of the images were discarded based on the filter criteria. 
 A total of 53*20=1060 annotations were performed by the crowds on the slices that had usable annotations. But 497 annotations on those image slices were usable. 62.3% of all annotations of this subject's slices were discarded. Irrespective of the amount of image slices, the % of discarded annotations of all subjects was between 54.6 and 76.1. 
 * Related work section
