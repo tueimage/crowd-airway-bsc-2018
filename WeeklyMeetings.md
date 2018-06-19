@@ -1,7 +1,6 @@
 # Weekly meetings
 
 Copy/paste and fill in the template below each week (most recent date on top, template at the bottom), commit and push your changes BEFORE coming to the weekly meeting with your supervisor.    
-
 ### Date: 11/06/2018
 
 #### What did you achieve this week?
@@ -53,8 +52,6 @@ A total of 53*20=1060 annotations were performed by the crowds on the slices tha
 
 #### Any other topic
 * 
-
-
 
 ### Date: 04/06/2018
 
@@ -154,7 +151,7 @@ Dus hierbij zal iets van statestiek nodig zijn of een andere maat om te kwantifi
 
 #### Where do you need help?
 
-* Mening en ideeën over nieuwe onderzoeksvraag/ deelvragen
+* Mening en idee??n over nieuwe onderzoeksvraag/ deelvragen
 * Tips voor statistische onderbouwing / wat voor een methoden zijn er om data te analyseren. 
 
 
@@ -199,7 +196,7 @@ Dus hierbij zal iets van statestiek nodig zijn of een andere maat om te kwantifi
 
 * I thought this might be an interesting article, but I don't have access to it.  
 
-Nowak, S., Rüger, S.
+Nowak, S., R??ger, S.
 How reliable are annotations via crowdsourcing? A study about inter-annotator agreement for
 multi-label image annotation
 (2010) MIR 2010 - Proceedings of the 2010 ACM SIGMM International Conference on Multimedia
@@ -208,7 +205,8 @@ DOI: 10.1145/1743384.1743478
 
 * 'Solved' the merge problem by manually changing the additions in my local files. Don't know yet if this will give problems when pushing my files to github.
 * When is the deadline of the paper?
-* Is it okay if all issues, planning etc. on github are in dutch?  
+* Is it okay if all issues, planning etc. on github are in dutch?  
+
 
 
 
