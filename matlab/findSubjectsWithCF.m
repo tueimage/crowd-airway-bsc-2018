@@ -4,18 +4,13 @@
 %% Load ground truth measurements - original file Adria, this also contains the subjects variable
 load(fullfile(dataPath, 'LUVAR_i64_I3_o64_O1_d20_th70_5mm_tapering80_TMI_PAPER.mat'),'data', 'subjects'); 
 gt=data;
+
 clear data;
 
 %% 
 
 subjectWithAirwaysID = [];
-subjectWithAirwaysStatus = [];
-
-subjectPtno = [];
-
-subjectFEV1_pPred = [];
-subjectFVC_pPred = [];
-        
+subjectWithAirwaysStatus = [];    
 
 %Go through all subjects in ground truth data
 for i=1:length(gt)
@@ -31,19 +26,16 @@ for i=1:length(gt)
         for j=1:length(subjects)
            if strcmp(subjects(j).ID, ['av' thisSubjectID])
                               
-               subjectWithAirwaysStatus = [subjectWithAirwaysStatus; subjects(i).status];
-               
-               subjectPtno = strvcat(subjectPtno, subjects(i).ptno);
-               
-               subjectFEV1_pPred = [subjectFEV1_pPred; subjects(i).FEV1_pPred];
-               subjectFVC_pPred = [subjectFVC_pPred; subjects(i).FVC_pPred];
+               subjectWithAirwaysStatus = [subjectWithAirwaysStatus; subjects(j).status]; % 1=no CF, 2=CF
                
                %Other measures like age could be collected here as well
            end
         end
     end
+    subjectIDandStatus=[str2num(subjectWithAirwaysID), subjectWithAirwaysStatus];
 end
 
-save('subjects_status.mat', 'subjectWithAirwaysID', 'subjectWithAirwaysStatus');
-    
+save([resultPath 'subjects_status.mat'], 'subjectIDandStatus');
+    %subjectIDandStatus contains the ID's and status of the subjects who's
+    %airways were used for annotation
     

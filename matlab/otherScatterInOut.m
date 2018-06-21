@@ -1,11 +1,15 @@
+%% Correlation of inner area vs. outer area 
+% This script creates an inner-vs-outer area plot in which specific tasks will
+% be shown. The annotations belonging to the same image slice are shown in
+% the same color. 
 
-%%Correlatie buiten en binnen
 [dataPath slicePath resultPath] = getPath;
 load([resultPath 'annotationSummary_allSubjectsFilter.mat'], 'filterGtTable', 'filterDataTable', 'filterAnnotTable');
+load([resultPath 'tasksSplitOnCFStatus.mat'], 'taskIDYesCF', 'taskIDNoCF');
 numTasks=2380;
 
 AllResults=0; %If set to one, all results will be shown in the scatterplot
-Tasks=[1555,2128,378, 387,433,568,640, 275, 1665]; %Choose specific numbers of tasks to analyse
+Tasks=taskIDNoCF; %Choose specific numbers of tasks to analyse
 
 if AllResults==1; 
     Tasks=[1:numTasks];
@@ -15,8 +19,8 @@ Group=[];
 InnerArea=[];
 OuterArea=[];
 for k=1:length(Tasks)
-    Task=Tasks(k);
-    AnnTask=[];
+    Task=Tasks(k); %specific task number
+    AnnTask=[]; %annotations of that specific task
     for i=1:length(filterDataTable)
         if filterDataTable(i,1)==Task
             AnnTask=[AnnTask; i];
@@ -31,7 +35,7 @@ for k=1:length(Tasks)
     InnerArea=[InnerArea;KWInnerArea];
     OuterArea=[OuterArea;KWOuterArea];
     Group=[Group;Type];
-
+    keyboard
 end
 
 figure; gscatter(InnerArea, OuterArea,Group)
