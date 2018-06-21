@@ -34,7 +34,7 @@ whichAnnotator = '';  %A string to store IDs of the crowd annotators
 
 
 %How many images to display
-showImages = 1;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
+showImages = 0;  %If set to 1, the code below will show 100 images, and you need to press the spacebar before going to the next image
 
 
 
@@ -65,9 +65,6 @@ for i=1:numTasksToShow
         
     ids = sscanf(origFileName, 'data(%d).airways(%d).viewpoints(%d)', [1, inf]);
     subjectID = ids(1);     %Which subject the airway is from
-    if subjectID==21;
-        keyboard
-    end
     airwayID = ids(2);      %Which airway of that subject is it
     viewpoint = ids(3);     %Which viewpoint of the airway (in this data, this is always 1)
             

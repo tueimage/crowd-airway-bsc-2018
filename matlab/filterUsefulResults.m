@@ -1,11 +1,10 @@
-
 %% Define data paths and load data
 
 [dataPath slicePath resultPath] = getPath;
 load([resultPath 'annotationSummary_allSubjects.mat'], 'gtTable', 'dataTable', 'annotTable');
 load([resultPath 'subjects_status.mat'], 'subjectIDandStatus');
 
-%Adding some data to the tables
+%% Adding some data to the tables
 for i=1:length(dataTable)
     for j=1:length(subjectIDandStatus)  % adding subject status to the dataTable
         if subjectIDandStatus(j,1)==dataTable(i,4)
@@ -21,8 +20,8 @@ end
 
 
 %% Filter data to keep all succesfull performed annotation results
-% Only the data of an annotation result that contains two annotations
-% which are defined as correct by the 'classifyAnnotation.m' are being kept. 
+% Only the data of an annotation result that contains two annotation
+% outlines which are defined as correct by the 'classifyAnnotation.m' are being kept. 
 
 filterDataTable=[];
 filterAnnotTable=[]; 

@@ -1,3 +1,7 @@
+%This script creates a cell which contains the subject ID, status and list of
+%tasks of that subject. These task only include the tasks that satisfied the filtering criteria. 
+
+%% Load data 
 [dataPath slicePath resultPath] = getPath;
 load([resultPath 'subjects_status.mat'], 'subjectIDandStatus');
 load([resultPath 'filterUsefulResults.mat'], 'filterGtTable', 'filterDataTable', 'filterAnnotTable');
@@ -25,10 +29,10 @@ taskIDYesCF = unique(filterDataTable(indexTaskYesCF,1))
 assert(numTasks == length(taskIDYesCF) + length(taskIDNoCF), "Numbers of tasks do not add up"); %If you do not see this error message then things are fine
 
 %%
-save([resultPath 'subjectsCF.mat'], 'subjectsYesCF', 'subjectsNoCF');
-save([resultPath 'tasksSplitOnCFStatus.mat'], 'taskIDYesCF', 'taskIDNoCF');
+save([resultPath 'subjectsCF.mat'], 'subjectsYesCF', 'subjectsNoCF'); %The ID's of subjects with CF and without CF are split in two lists
+save([resultPath 'tasksSplitOnCFStatus.mat'], 'taskIDYesCF', 'taskIDNoCF'); %The tasks of subjects with CF and without CF are split in two lists
 
-%% Creating a cell which contains, subject, status and a list of the tasks belonging to that subject
+%% Creating a cell which contains, (1)subject ID, (2)status and (3)a list of the tasks belonging to that subject
 
 subjectIDandStatusandTask={};
 for i=1:length(subjectIDandStatus)
@@ -40,3 +44,5 @@ for i=1:length(subjectIDandStatus)
 end
 %%
 save([resultPath 'subjectIDandStatusandTask.mat'], 'subjectIDandStatusandTask');
+%subjectIDandStatusandTask contains the subject ID, status and list of
+%tasks of that subject. These task only include the tasks that satisfied the filtering criteria. 
